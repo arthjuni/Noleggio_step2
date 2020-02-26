@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+{% if user.is_authenticated %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Logout</title>
+</head>
+<body>
+<h2>ALLA PROSSIMA </h2>
+<a href="{% url 'login'%}">Login</a>
+</body>
+
+{% else %}
+    <p>Deve Effettuare il login per vedere questa pagina.</p>
+{% endif %}
+
+
+</html>

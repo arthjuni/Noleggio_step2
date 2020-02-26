@@ -1,0 +1,50 @@
+<html>
+
+
+
+{% extends "Pages/AdminH.html" %}
+
+
+
+{%block detail%}
+
+{% if user.is_authenticated %}
+
+    <acticle>
+        {%for i in ttl%}
+            <p> Titolo: {{i.titolo|upper}}  </p>
+            <p> Prezzo: {{i.prezzo_listino}}  </p>
+            <p>Actore  : {{i.autore}}</p>
+            <p>Description : {{i.description}}</p>
+            <p>Durata  : {{i.durata}}</p>
+
+
+    <div class="quantitafilm">
+
+            <p>QUANTITA MAX :{{i.quantita_articolo|upper}}</p>
+            {%endfor%}
+    </div>
+
+         </acticle>
+ <div class="selectNBfilm">
+
+            <label>Quanti Film Vuole Noleggiare :</label>
+            {{forma.nbr}}
+
+    </div>
+
+    <div class='no'>
+        <input type='submit' value='Nolegare' name='noleg'/>
+        <input type='submit' value='tornare al Home' name="return"/>
+    </div>
+
+{% else %}
+    <script>
+         alert('Deve Effettuare il login per vedere questa pagina.')
+    </script>
+{% endif %}
+
+{%endblock%}
+
+
+</html>

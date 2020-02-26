@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+
+{% extends 'Pages/Home.html' %}
+
+
+{%block list%}
+
+    <h2>
+         <p>Buongiorno {{nomeutente}}</p>
+    </h2>
+
+{% for i in list_film %}
+
+
+    <div style = "float: right;margin: 5px 5px 5px 5px;">
+        <img  src="/static/Images/logo.jpg" alt="{{i.title}}"><br><a href="{% url 'detaglio' i.listvideomerce_id %}">{{i.titolo}}</a>
+    </div>
+
+{%endfor%}
+<nav>
+    <ul class="pagination">
+        {% if list_film.has_previous %}
+            <li><a href="?page={{list_film.previous_page_number}}">Precedente</a> </li>
+        {% endif %}
+
+        {% if list_film.has_next %}
+            <li><a href="?page={{list_film.next_page_number}}">Avanti</a> </li>
+        {% endif %}
+    </ul>
+</nav>
+{%endblock%}
+
+
+</html>

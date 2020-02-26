@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load filtro %}
+
+
+{% if user.is_authenticated %}
+
+{% if request.user|has_group:"GROUP_CAPO_NEGOZIO" or user.is_staff %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>CARICA ARTICOLO</title>
+</head>
+<body>
+    <form action="{% url 'caricaarticolo' %}" method="post">
+           {% csrf_token %}
+
+        <div class="video">
+             <label for="video">Video :</label>
+              {{forma.video}}
+        </div>
+
+        <div class="merce">
+             <label for="merce">Merce :</label>
+              {{forma.merce}}
+        </div>
+
+        <div class="data">
+             <label for="data">Data :</label>
+              {{forma.last_update}}
+        </div>
+
+        <div class="quantitaarticolo">
+             <label for="quantitaarticolo">Quantita di Articolo :</label>
+              {{forma.quantita}}
+        </div>
+
+         <div class="clsart_invio_return">
+                <input type="submit" name="invio" value="INVIO" >
+                <input type="submit" name="return" value="RETURN">
+         </div>
+
+     </form>
+</body>
+
+{%else%}
+ <p>non sei autorisato</p>
+{% endif%}
+
+
+
+{% else %}
+    <script>
+             alert('Deve Effettuare il login per vedere questa pagina.')
+
+
+    </script>
+
+{% endif %}
+</html>

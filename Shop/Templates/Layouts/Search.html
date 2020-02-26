@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+{% extends "Pages/AdminH.html" %}
+
+{% block seach%}
+
+{% if user.is_authenticated %}
+
+{% for recherche in album %}
+<article>
+    <!--{{recherche.titolo}}-->
+
+
+    <div style = "float: right;margin: 5px 5px 5px 5px;">
+        <img  src="/static/Images/logo.jpg" alt="{{recherche.title}}"><br><a href="{% url 'detaglio' recherche.fid %}">{{recherche.title}}</a>
+    </div>
+
+</article>
+
+{%endfor%}
+
+
+{% else %}
+<script>
+             alert('Deve Effettuare il login per vedere questa pagina.')
+
+</script>
+
+{% endif %}
+
+
+{%endblock%}
+
+
+</html>

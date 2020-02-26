@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% extends "Pages/AdminH.html" %}
+
+{% block inscription%}
+{% if user.is_authenticated %}
+{% if request.user|has_group:"GROUP_CAPO_NEGOZIO" or user.is_staff or request.user|has_group:"GROUP_LAVORATORE"  %}
+
+<form action="{% url 'inscription'%}" method="post">
+    {% csrf_token %}
+<nav >
+<div class="codicefiscale">
+     <label for="codicefiscale">CodiceFiscale :</label>
+      {{forma.codicefiscale}}
+</div>
+
+<!--<div class="name">
+     <label for="name">Name :</label>
+      {{forma.nome}}
+</div>-->
+<!--<div class="cognome">
+     <label for="cognome">Cognome :</label>
+      {{forma.cognome}}
+</div>-->
+<div class="datanascita">
+     <label for="datanascita">Data di Nascita :</label>
+      {{forma.data_di_nascita}}
+</div>
+
+    <div class="tipo">
+     <label for="tipo">Tipo :</label>
+      {{forma.tipo}}
+</div>
+
+    <div class="documento">
+     <label for="documento">Documento :</label>
+      {{forma.documento}}
+</div>
+
+    <div class="utente">
+     <label for="utente">Utente :</label>
+      {{forma.utente}}
+</div>
+
+   <!-- <div class="password">
+     <label for="password">Password :</label>
+      {{forma.password}}
+</div>-->
+
+    <div class="last_update">
+     <label for="last_update">Data :</label>
+      {{forma.last_update}}
+</div>
+
+
+
+<div class="telefonofisso">
+     <label for="telefonofisso">Telefono Fisso :</label>
+      {{forma.telefono_casa}}
+</div>
+
+<div class="telefonocellulare">
+     <label for="telefonocellulare">Telefono Cellulare :</label>
+      {{forma.telefono_cellulare}}
+</div>
+
+<!--<div class="email">
+     <label for="email">Email :</label>
+      {{forma.email}}
+</div>-->
+
+<div>
+
+    <button class="inscriptioninvio"  name='invio' type="submit">INVIO</button>
+
+    <button class="inscriptionhome"name="home" type="submit">HOME</button>
+
+
+
+</div>
+</nav>
+</form>
+
+{%else%}
+ <p>non sei autorisato</p>
+{% endif%}
+
+{% else %}
+<script>
+             alert('Deve Effettuare il login per vedere questa pagina.')
+
+</script>
+
+{% endif %}
+
+{% endblock %}
+
+</html>

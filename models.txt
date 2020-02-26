@@ -1,0 +1,30 @@
+# This is an auto-generated Django model module.
+# You'll have to do the following manually to clean this up:
+#   * Rearrange models' order
+#   * Make sure each model has one field with primary_key=True
+#   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
+#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
+# Feel free to rename the models, but don't rename db_table values or field names.
+from django.db import models
+
+
+class Listvideomercelav(models.Model):
+    listvideomercelav_id = models.IntegerField(blank=True, null=True)
+    nome = models.CharField(db_column='Nome', max_length=45)  # Field name made lowercase.
+    nome_localita = models.CharField(db_column='Nome_localita', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    autore = models.CharField(db_column='Autore', max_length=200, blank=True, null=True)  # Field name made lowercase.
+    casaprodutrice = models.CharField(db_column='CasaProdutrice', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    description = models.CharField(db_column='Description', max_length=500, blank=True, null=True)  # Field name made lowercase.
+    durata = models.IntegerField(db_column='Durata', blank=True, null=True)  # Field name made lowercase.
+    genere = models.CharField(db_column='Genere', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    regista = models.CharField(db_column='Regista', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    username = models.CharField(max_length=150, blank=True, null=True)
+    prezzo_listino = models.FloatField(db_column='Prezzo_listino', blank=True, null=True)  # Field name made lowercase.
+    quantita_merce = models.IntegerField(blank=True, null=True)
+    quantita_articolo = models.IntegerField(blank=True, null=True)
+    nome_fornitura = models.CharField(db_column='Nome_fornitura', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    titolo = models.CharField(db_column='Titolo', max_length=45, blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Listvideomercelav'

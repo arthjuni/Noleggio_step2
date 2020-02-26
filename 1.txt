@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+{% if user.is_authenticated %}
+{% if user.is_staff%}
+{% if user.in_group("GROUP_CAPO_NEGOZIO")%}
+{% if request.user|has_group:"GROUP_CAPO_NEGOZIO" %}
+<head>
+    <meta charset="UTF-8">
+    <title>CARICO MERCE</title>
+</head>
+<body>
+    <form action="{% url 'caricamerce' %}" method="post">
+           {% csrf_token %}
+
+            <div class="quantitaM">
+                 <label for="quantitaM">Quantita Merce :</label>
+                  {{forma.quantita}}
+            </div>
+
+            <div class="punto_vendita">
+                 <label for="punto_vendit">Punto Vendita :</label>
+                  {{forma.punto_vendita}}
+            </div>
+
+
+            <div class="fornitore">
+                 <label for="fornitore">Fornitore :</label>
+                  {{forma.fornitore}}
+            </div>
+
+            <div class="Data">
+                 <label for="data">Data :</label>
+                  {{forma.last_update}}
+            </div>
+             <div class="clsmer_invio_return">
+                    <input type="submit" name="invio" value="INVIO" >
+                    <input type="submit" name="return" value="RETURN">
+             </div>
+
+    </form>
+
+</body>
+{%else%}
+ <p>non sei autorisato</p>
+{% endif%}
+
+{% else %}
+    <p>Deve Effettuare il login per vedere questa pagina.</p>
+{% endif %}
+</html>

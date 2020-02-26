@@ -1,0 +1,19 @@
+<html>
+<form action="{%url 'ACCESSO'%}" method="POST">
+	{%csrf_token%}
+	<div id="name">
+	<label for="id">UTENTE :</label>
+	{{forma.name}}
+	</div>
+
+	<div id='paswd'>
+	<label for="pswd">PASSWORD :</label>
+	{{forma.pwd}}
+	</div>
+
+	<input type="submit" name="invio" value="INVIO">
+
+
+</form>
+
+</html>

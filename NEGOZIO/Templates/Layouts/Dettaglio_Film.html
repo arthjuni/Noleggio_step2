@@ -1,0 +1,18 @@
+<html>
+{% extends "Pages/NegozioHome.html" %}
+{%block detail%}
+    <acticle>
+        {%for i in ttl%}
+            <p> Titolo: {{i.Titolo|upper}}  </p>
+            <p> Regista: {{i.Regista}}  </p>
+            <p>Autore  : {{i.Autore}}</p>
+            <p>Casa di Produtrice : {{i.CasaProdutrice}}</p>
+            <p>Durata  : {{i.Durata}}</p>
+        {%endfor%}
+    </acticle>
+    <div class='no'>
+    <input type='submit' value='Nolegare' name='noleg'/> 
+    <input type='submit' value='tornare al Home'/>
+    </div>
+{%endblock%}
+</html>

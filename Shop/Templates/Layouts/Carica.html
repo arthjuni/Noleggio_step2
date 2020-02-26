@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Carica</title>
+</head>
+<body>
+
+    <form action="{% url 'carica' %}" method="post">
+           {% csrf_token %}
+
+            <div class="quantitaM">
+                 <label for="quantitaM">Quantita Merce :</label>
+                  {{forma.quantita}}
+            </div>
+
+            <div class="punto_vendita">
+                 <label for="punto_vendit">Punto Vendita :</label>
+                  {{forma.punto_vendita}}
+            </div>
+
+
+            <div class="fornitore">
+                 <label for="fornitore">Fornitore :</label>
+                  {{forma.fornitore}}
+            </div>
+
+             <div class="video">
+             <label for="video">Video :</label>
+              {{forma.video}}
+        </div>
+
+        <div class="merce">
+             <label for="merce">Merce :</label>
+              {{forma.merce}}
+        </div>
+
+        <div class="data">
+             <label for="data">Data :</label>
+              {{forma.last_update}}
+        </div>
+
+        <div class="quantitaarticolo">
+             <label for="quantitaarticolo">Quantita di Articolo :</label>
+              {{forma.quantita}}
+        </div>
+
+
+    </form>
+
+
+             <div class="clsmer_invio_return">
+                    <input type="submit" name="invio" value="INVIO" >
+                    <input type="submit" name="return" value="RETURN">
+             </div>
+
+
+
+
+
+</body>
+</html>
